@@ -13,9 +13,8 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: MONGODB_USE_MEMORY
-        value: "true"
-      # Optional — replace with Atlas URI for persistent data (set MONGODB_USE_MEMORY=false)
-      # - key: MONGODB_URI
-      #   sync: false
+        value: "false"
+      - key: MONGODB_URI
+        sync: false
       - key: CLIENT_ORIGIN
         sync: false
