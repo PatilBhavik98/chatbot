@@ -1,0 +1,21 @@
+# Free deploy on Render: https://render.com — New > Blueprint > connect repo with this file
+services:
+  - type: web
+    name: chatbot
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: NODE_ENV=production npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_USE_MEMORY
+        value: "true"
+      # Optional — replace with Atlas URI for persistent data (set MONGODB_USE_MEMORY=false)
+      # - key: MONGODB_URI
+      #   sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
