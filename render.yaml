@@ -8,8 +8,6 @@ services:
     startCommand: NODE_ENV=production npm start
     healthCheckPath: /api/health
     envVars:
-      - key: NODE_ENV
-        value: production
       - key: JWT_SECRET
         generateValue: true
       - key: MONGODB_USE_MEMORY
